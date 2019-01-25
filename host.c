@@ -18,7 +18,7 @@
 #define CLIENT_NUM 4
 #define ANSWER_NUM 6
 
-#define END_PROGRAM "!end\n"
+#define END_PROGRAM "quit\n"
 
 static char* answers[ANSWER_NUM] = {
     "Yes",
@@ -59,7 +59,7 @@ void GetHostsQuestion(sem_t* semParent, sem_t* sem[], char* nameSem[])
 	{
 		printf("Enter your question: \n");
         fgets(string, BUF_SIZE, stdin);  
-		if (!strcmp(string,END_PROGRAM)) // End work
+		if (!(strcmp(string,END_PROGRAM)) ) // End work
   		{   
   			for (i = 0; i < CLIENT_NUM; i++)
   			{
